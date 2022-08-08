@@ -1,0 +1,13 @@
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: bisque;
+    border: 1px solid red;
+    margin: 10px;
+    display: inline-block
+}
+
+#frame {
+    border: 1px solid red;
+    text-align: center;
+}
