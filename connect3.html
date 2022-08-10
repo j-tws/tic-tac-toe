@@ -5,21 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Tic-tac-toe</title>
+    <title>Connect 4</title>
 </head>
 <body>
     <header>
-        <h1>Tic Tac Toe</h1>
+        <h1>Connect . 3</h1>
+        <p>Your typical tic-tac-toe game with typical rules. Best of 3 wins the game!</p>
     </header>
+
+    <div>
+        <h3 id="playerTurn"></h3>
+    </div>
     
     <div id="playerOne">
     <h2>Player 1</h2>
-    <p>Wins:</p>
+    <p>Wins</p>
+    <p id="pOneWinCount">0</p>
     </div>
     
     <div id="playerTwo">
     <h2>Player 2</h2>
-    <p>Wins:</p>
+    <p>Wins</p>
+    <p id="pTwoWinCount">0</p>
     </div>
 
     <div id="frame">
@@ -43,6 +50,7 @@
         </div>
         </div>
 
+
     <div id="rowC">
         <div class="box" id="c1">
         </div>
@@ -50,11 +58,17 @@
         </div>
         <div class="box" id="c3">
         </div>
-        </div>
-
     </div>
 
-    <button id="reset">Reset Board</button>
+    
+    
+    <footer>
+        <div id="resetContainer">
+            <p id="announcement"></p>
+            <a href="#" id="boardReset">Click me for board reset</a>
+            <a href="" id="gameReset">Click me for game reset</a>
+        </div>
+    </footer>
 
     <script src="js/jquery.js"></script>
     <script src="js/main.js"></script>

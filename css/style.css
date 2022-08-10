@@ -1,32 +1,133 @@
-.box {
-    width: 200px;
-    height: 200px;
-    background-color: bisque;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+header p {
+    font-weight: 300;
     /* border: 1px solid red; */
-    margin: 10px;
-    display: inline-block
+    margin-top: -20px;
+}
+
+.box {
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(#b6b3addd, #f1ebe4dd);
+    /* border: 1px solid red; */
+    margin: 5px;
+    display: inline-block;
+    border-radius: 50%;
+
+    /* original background color ref (#b6b3addd, #e8dfd4dd ) */
+}
+
+.box:hover {
+    box-shadow: 0 0 20px 5px #989898dd;
 }
 
 #frame {
     /* border: 1px solid red; */
     text-align: center;
+    margin-top: 50px;
+    /* border: 1px solid red; */
 }
 
 h1 {
     text-align: center;
+    font-weight: 700;
+    font-size: 50px;
 }
 
 #playerOne {
     position: absolute;
-    left: 5%;
-
+    left: 10%;
+    top: 40%;
+    text-align: center;
 }
 
 #playerTwo {
     position: absolute;
-    right: 5%;
+    right: 10%;
+    top: 40%;
+    text-align: center;
 }
 
-#reset {
+#resetContainer {
+    position: relative;
+    /* border: 1px solid red; */
+    text-align: center;
+    width: 250px;
     margin: 0 auto;
+}
+
+#boardReset {
+
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+
+}
+
+#gameReset {
+    position: relative;
+    bottom: 50px;
+    margin-bottom: 50px;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+}
+
+#resetContainer a:visited {
+    color: black;
+}
+
+
+#announcement, #boardReset, #gameReset {
+    /* border: 1px solid red; */
+    text-align: center;
+    visibility: hidden;
+}
+
+h2 {
+    font-size: 25px;
+}
+
+#pOneWinCount {
+    font-size: 40px;
+    /* border: 1px solid red; */
+    margin-top: -10px;
+}
+
+#pTwoWinCount {
+    font-size: 40px;
+    /* border: 1px solid red; */
+    margin-top: -10px;
+}
+
+#announcement {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#playerTurn {
+    text-align: center;
+}
+
+#playerOne h2 {
+    color: #7f2c2ce0;
+}
+
+#playerTwo h2 {
+    color: #174463dd;
 }
