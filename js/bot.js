@@ -182,7 +182,7 @@ const botPlay = function () {
         $('.box').css('pointer-events', 'none')
         playerBotWins ++
         $('#pBotWinCount').text(`${playerBotWins}`)
-        $('#announcement').css('visibility', 'visible').text(`Player 2 wins!`)
+        $('#announcement').css('visibility', 'visible').text(`Player Bot wins!`)
         $('#boardReset').css('visibility', 'visible')
 
         //condition for best of 3
