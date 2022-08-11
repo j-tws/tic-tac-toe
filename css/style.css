@@ -148,3 +148,13 @@ a {
 header p {
     font-size: 20px;
 }
+
+#red {
+    color: #7f2c2ce0;
+    font-weight: 700;
+}
+
+#blue {
+    color: #174463dd;
+    font-weight: 700;
+}
