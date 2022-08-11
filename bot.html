@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bot.css">
+    <title>Connect 3 with bot</title>
+</head>
+<body>
+    <a href="home.html" id="home">Home</a>
+    <header>
+        <h1>Connect . 3</h1>
+        <p>Single mode tic-tac-toe with your friendly newbie bot! Best of 3 wins the game!</p>
+    </header>
+
+    <a href="#" id="whoseTurn">Click me to select who start first</a>
+    <div>
+        <h3 id="playerTurn"></h3>
+    </div>
+    
+    <div id="playerOne">
+    <h2>Player 1</h2>
+    <p>Wins</p>
+    <p id="pOneWinCount">0</p>
+    </div>
+    
+    <div id="playerBot">
+    <h2>Player Bot</h2>
+    <p>Wins</p>
+    <p id="pBotWinCount">0</p>
+    </div>
+
+    <div id="frame">
+
+    <div id="rowA">
+    <div class="box" id="a1">
+    </div>
+    <div class="box" id="a2">
+    </div>
+    <div class="box" id="a3">
+    </div>
+    </div>
+
+
+    <div id="rowB">
+        <div class="box" id="b1">
+        </div>
+        <div class="box" id="b2">
+        </div>
+        <div class="box" id="b3">
+        </div>
+        </div>
+
+
+    <div id="rowC">
+        <div class="box" id="c1">
+        </div>
+        <div class="box" id="c2">
+        </div>
+        <div class="box" id="c3">
+        </div>
+    </div>
+
+    
+    
+    <footer>
+        <div id="resetContainer">
+            <p id="announcement"></p>
+            <a href="#" id="boardReset">Click me for board reset</a>
+            <a href="" id="gameReset">Click me for game reset</a>
+        </div>
+    </footer>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bot.js"></script>
+</body>
+</html>
+
+
+
+

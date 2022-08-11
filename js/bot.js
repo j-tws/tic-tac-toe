@@ -17,15 +17,20 @@ const condition = [['a1', 'a2', 'a3'],      //0
 let playerTurn = "One" //player turns
 
 let playerOne = [] //empty arrays to collect Ids as data for win conditions
-let playerTwo = []
+let playerBot = []
 
 let playerOneColor = 'radial-gradient(#773535e0, #120101e1)' //player colors
-let playerTwoColor = 'radial-gradient( #265779dd, #010a18dd)'
+let playerBotColor = 'radial-gradient( #265779dd, #010a18dd)'
 
 let playerOneWins = 0 //player win counts
-let playerTwoWins = 0
+let playerBotWins = 0 
+
+let playerIdPick = '' //the id of box that player picked each round
+let boxId = ['a1', 'a2', 'a3', 'b1', 'b2', 'b3', 'c1', 'c2', 'c3']
+let timeoutID = null
 
 $('.box').css('pointer-events', 'none')
+
 
 
 //===================================================================
@@ -43,9 +48,11 @@ const whoseTurn = function () {
             playerTurn = "One"
             $('#playerTurn').text(`It's Player One turn!`)
             // console.log('one')
+
         } else if (randomNum === 1) {
-            playerTurn = "Two"
-            $('#playerTurn').text(`It's Player Two turn!`)
+            playerTurn = "Bot"
+            timeoutID = setTimeout( botPlay, 500 )  
+            $('#playerTurn').text(`It's Player Bot turn!`)
             // console.log('two')
         }
 
@@ -55,7 +62,6 @@ const whoseTurn = function () {
 }
 
 whoseTurn()
-
 
 //===================================================================
 
@@ -88,26 +94,29 @@ const gameWin = function(playerArray) {
 
 const play = function () { 
 
+    
     //click handler for any box
     $('.box').on('click', function() {
 
-        //if it is player one's turn
         if (playerTurn === "One") {
 
-            //change clicked box background, and make box unclickable after clicking
             $(this).css('background', playerOneColor)    
             $(this).css('pointer-events', 'none')
             
             //obtain box ID and push into player's array, announce other player's turn and make it other player's turn
-            playerOne.push( $(this).attr('id') ); 
-            console.log(`playerOne's array ${playerOne}`)
-            playerTurn = "Two"
-            $('#playerTurn').text(`It's Player ${playerTurn} turn!`)
+            playerIdPick = $(this).attr('id')
+            playerOne.push( playerIdPick ); 
+            // console.log(`playerOne's array ${playerOne}`)
+
+            timeoutID = setTimeout( botPlay, 500 )  
+            playerTurn = "Bot"
+            $('#playerTurn').text(`It's Player Bot turn!`)
 
             //if playerOne win, function with playerOne argument
             if ( gameWin(playerOne) ) { 
 
                 //all boxes will become unclickable, playOne score will +1, the reset button and winning announcement will appear
+                clearTimeout (timeoutID)
                 $('.box').css('pointer-events', 'none')
                 playerOneWins ++
                 $('#pOneWinCount').text(`${playerOneWins}`)
@@ -125,52 +134,73 @@ const play = function () {
             } else if ( playerOne.length === 5 && gameWin(playerOne) !== true ) {
                 $('#announcement').css('visibility', 'visible').text(`It's a draw!`)
                 $('#boardReset').css('visibility', 'visible')
-
             } 
-            
-        //if it is player two's turn    
-        } else if (playerTurn === "Two") {
-            //change box background, and make box unclickable after clicking
-            $(this).css('background', playerTwoColor)
-            $(this).css('pointer-events', 'none')
-            
-            //obtain box ID and push into player's array, announce other player's turn and make it other player's turn
-            playerTwo.push( $(this).attr('id') );
-            console.log(`playerTwo's array ${playerTwo}`)
-            playerTurn = "One"
-            $('#playerTurn').text(`It's Player ${playerTurn} turn!`)
-            
-            //if playerTwo win, function with playerTwo argument
-            if ( gameWin(playerTwo) ) {
+        } 
 
-                //all boxes will become unclickable, playOne score will +1, the reset button and winning announcement will appear
-                $('.box').css('pointer-events', 'none')
-                playerTwoWins ++
-                $('#pTwoWinCount').text(`${playerTwoWins}`)
-                $('#announcement').css('visibility', 'visible').text(`Player 2 wins!`)
-                $('#boardReset').css('visibility', 'visible')
+        })
+        
 
-                //condition for best of 3
-                if (playerTwoWins === 3) {
-                    $('#announcement').text(`Player Two wins the grand connect 3 game!`)
-                    $('#gameReset').css('visibility', 'visible')
-                    $('#boardReset').css('visibility', 'hidden')
-                }
-                
-                //if it draws, announcement of draw will appear
-            } else if ( playerTwo.length === 5 && gameWin(playerTwo) !== true ) {
-                $('#announcement').css('visibility', 'visible').text(`It's a draw!`)
-                $('#boardReset').css('visibility', 'visible')
-                
-            }
-        }
-    })  
+    
 } // play function
 
 play()
 
-//===================================================================
+//=======================================================================
 
+const botPlay = function () {
+
+    if (playerTurn === "Bot") {
+
+    //first loop splice to remove player's chosen id 
+    for (let i = 0; i < boxId.length; i++) {
+        if (playerIdPick === boxId[i]) {
+            boxId.splice([i], 1)
+        }
+    }
+
+    let randomNum = Math.floor( Math.random() * boxId.length )
+    playerIdPick =  boxId[randomNum] 
+
+    //second loop splice to remove bot's chosen id
+    for (let i = 0; i < boxId.length; i++) {
+        if (playerIdPick === boxId[i]) {
+            boxId.splice([i], 1)
+        }
+    }
+    console.log(boxId)
+    console.log(playerIdPick)
+
+    $(`#${playerIdPick}`).css('background', playerBotColor)
+    $(`#${playerIdPick}`).css('pointer-events', 'none')
+    playerBot.push( playerIdPick ); 
+    playerTurn = "One"
+    $('#playerTurn').text(`It's Player One turn!`)
+
+    if ( gameWin(playerBot) ) { 
+
+        //all boxes will become unclickable, playBot score will +1, the reset button and winning announcement will appear
+        $('.box').css('pointer-events', 'none')
+        playerBotWins ++
+        $('#pBotWinCount').text(`${playerBotWins}`)
+        $('#announcement').css('visibility', 'visible').text(`Player 2 wins!`)
+        $('#boardReset').css('visibility', 'visible')
+
+        //condition for best of 3
+        if (playerBotWins === 3) {
+            $('#announcement').text(`Player Bot wins the grand connect 3 game!`)
+            $('#gameReset').css('visibility', 'visible')
+            $('#boardReset').css('visibility', 'hidden')
+        }
+
+    } else if ( playerBot.length === 5 && gameWin(playerBot) !== true ) {
+        $('#announcement').css('visibility', 'visible').text(`It's a draw!`)
+        $('#boardReset').css('visibility', 'visible')
+        
+    }
+}
+}
+
+//===================================================================
 
 const resetBoard = function () {
 
@@ -180,14 +210,16 @@ const resetBoard = function () {
         $('.box').css('pointer-events', 'none')
         $('#announcement').text('')
         $('#boardReset').css('visibility', 'hidden')
-        $('#playerTurn').text(``)
         $('#whoseTurn').css('visibility', 'visible')
+        $('#playerTurn').text(``)
+        boxId = ['a1', 'a2', 'a3', 'b1', 'b2', 'b3', 'c1', 'c2', 'c3']
         playerOne = []
-        playerTwo = []
+        playerBot = []
     })  
 }
 
 resetBoard()
 
 //==================================================================
+
 

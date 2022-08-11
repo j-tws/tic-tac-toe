@@ -50,7 +50,7 @@ h1 {
     text-align: center;
 }
 
-#playerTwo {
+#playerBot {
     position: absolute;
     right: 10%;
     top: 40%;
@@ -109,7 +109,7 @@ h2 {
     margin-top: -10px;
 }
 
-#pTwoWinCount {
+#pBotWinCount {
     font-size: 40px;
     /* border: 1px solid red; */
     margin-top: -10px;
@@ -128,7 +128,7 @@ h2 {
     color: #7f2c2ce0;
 }
 
-#playerTwo h2 {
+#playerBot h2 {
     color: #174463dd;
 }
 
