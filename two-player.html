@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bot.css">
-    <title>Connect 3 with bot</title>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Connect 3</title>
 </head>
 <body>
     <a href="index.html" id="home">Home</a>
     <header>
         <h1>Connect . 3</h1>
-        <p>Single player mode tic-tac-toe with your friendly simple bot! Best of 3 wins the game!</p>
-        <p>You are the human <span id="red">Player One being Red</span>, and <span id="blue">Player Bot being Blue.</span></p>
+        <p>Classic two player mode of tic-tac-toe.</p>
+        <p>Pick your color. <span id="red">Player One being Red</span>, and <span id="blue">Player Two being Blue.</span></p>
         <p>Proceed to click the button to start. Best of 3 matches wins the game!</p>
+        
     </header>
 
     <a href="#" id="whoseTurn">Click me to select who start first</a>
@@ -27,10 +28,10 @@
     <p id="pOneWinCount">0</p>
     </div>
     
-    <div id="playerBot">
-    <h2>Player Bot</h2>
+    <div id="playerTwo">
+    <h2>Player 2</h2>
     <p>Wins</p>
-    <p id="pBotWinCount">0</p>
+    <p id="pTwoWinCount">0</p>
     </div>
 
     <div id="frame">
@@ -63,19 +64,20 @@
         <div class="box" id="c3">
         </div>
     </div>
-
-    <div id="background">
-        <div id="bg1"></div>
-        <div id="bg2"></div>
-        <div id="bg3"></div>
-        <div id="bg4"></div>
-        <div id="bg5"></div>
-        <div id="bg6"></div>
-        <div id="bg7"></div>
-        <div id="bg8"></div>
-        <div id="bg9"></div>
-        <div id="bg10"></div>
     </div>
+
+<div id="background">
+    <div id="bg1"></div>
+    <div id="bg2"></div>
+    <div id="bg3"></div>
+    <div id="bg4"></div>
+    <div id="bg5"></div>
+    <div id="bg6"></div>
+    <div id="bg7"></div>
+    <div id="bg8"></div>
+    <div id="bg9"></div>
+    <div id="bg10"></div>
+</div>
     
     
     <footer>
@@ -87,7 +89,7 @@
     </footer>
 
     <script src="js/jquery.js"></script>
-    <script src="js/bot.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
 

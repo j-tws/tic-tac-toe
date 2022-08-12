@@ -7,8 +7,6 @@ This project is based on a simple game of tic-tac-toe, where there will be two p
 
 Upon visiting the home page there will be two playable modes for you to choose from, one being a local 2-player mode where you compete with another person. The other mode is where you will play with a very simple programmed bot. 
 
-![2 player mode screen](images/Game SS.png)
-
 ### **2-player mode**
 
 In the page of the 2-player mode, there will be a brief *description* that informs the players on some simple instructions. The player first choose internally which player / color they would like to be. 

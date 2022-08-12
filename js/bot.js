@@ -31,7 +31,6 @@ let timeoutID = null
 
 
 
-
 $('.box').css('pointer-events', 'none')
 
 //===================================================================
@@ -122,7 +121,7 @@ const play = function () {
                 playerOneWins ++
                 $('#pOneWinCount').text(`${playerOneWins}`)
                 $('#announcement').css('visibility', 'visible').text(`Player 1 wins!`)
-                boardButtonVisible
+                $('#boardReset').css('visibility', 'visible')
 
                 //condition for best of 3
                 if (playerOneWins === 3) {
@@ -134,7 +133,7 @@ const play = function () {
                 //if it draws, announcement of draw will appear
             } else if ( playerOne.length === 5 && gameWin(playerOne) !== true ) {
                 $('#announcement').css('visibility', 'visible').text(`It's a draw!`)
-                boardButtonVisible
+                $('#boardReset').css('visibility', 'visible')
             } 
         } 
 
@@ -184,7 +183,7 @@ const botPlay = function () {
         playerBotWins ++
         $('#pBotWinCount').text(`${playerBotWins}`)
         $('#announcement').css('visibility', 'visible').text(`Player Bot wins!`)
-        boardButtonVisible
+        $('#boardReset').css('visibility', 'visible')
 
         //condition for best of 3
         if (playerBotWins === 3) {
@@ -195,7 +194,7 @@ const botPlay = function () {
 
     } else if ( playerBot.length === 5 && gameWin(playerBot) !== true ) {
         $('#announcement').css('visibility', 'visible').text(`It's a draw!`)
-        boardButtonVisible
+        $('#boardReset').css('visibility', 'visible')
         
     }
 }
