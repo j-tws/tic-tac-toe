@@ -61,7 +61,7 @@ h1 {
     position: relative;
     /* border: 1px solid red; */
     text-align: center;
-    width: 250px;
+    width: 400px;
     margin: 0 auto;
 }
 
@@ -119,6 +119,7 @@ h2 {
 #announcement {
     font-size: 30px;
     font-weight: 700;
+    border: 1px solid red;
 }
 
 #playerTurn {
