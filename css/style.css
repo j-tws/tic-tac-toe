@@ -59,7 +59,6 @@ h1 {
 
 #resetContainer {
     position: relative;
-    /* border: 1px solid red; */
     text-align: center;
     width: 400px;
     margin: 0 auto;
@@ -95,7 +94,6 @@ body a:visited {
 
 
 #announcement, #boardReset, #gameReset {
-    /* border: 1px solid red; */
     text-align: center;
     visibility: hidden;
 }
@@ -106,20 +104,17 @@ h2 {
 
 #pOneWinCount {
     font-size: 40px;
-    /* border: 1px solid red; */
     margin-top: -10px;
 }
 
 #pTwoWinCount {
     font-size: 40px;
-    /* border: 1px solid red; */
     margin-top: -10px;
 }
 
 #announcement {
     font-size: 30px;
     font-weight: 700;
-    /* border: 1px solid red; */
 }
 
 #playerTurn {
