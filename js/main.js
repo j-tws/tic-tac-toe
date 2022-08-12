@@ -24,6 +24,7 @@ let playerTwoColor = 'radial-gradient( #265779dd, #010a18dd)'
 
 let playerOneWins = 0 //player win counts
 let playerTwoWins = 0
+//To further DRY up code, convert this scoreboard into an object (pass by ref into argument in function)
 
 $('.box').css('pointer-events', 'none')
 
@@ -84,6 +85,7 @@ const gameWin = function(playerArray) {
 
 //===================================================================
 
+//function for the overall gameplay
 const play = function () { 
 
     //click handler for any box
@@ -168,7 +170,6 @@ const play = function () {
 play()
 
 //===================================================================
-
 
 const resetBoard = function () {
 

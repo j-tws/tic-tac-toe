@@ -29,9 +29,10 @@ let playerIdPick = '' //the id of box that player picked each round
 let boxId = ['a1', 'a2', 'a3', 'b1', 'b2', 'b3', 'c1', 'c2', 'c3']
 let timeoutID = null
 
+
+
+
 $('.box').css('pointer-events', 'none')
-
-
 
 //===================================================================
 
@@ -91,10 +92,9 @@ const gameWin = function(playerArray) {
 
 //===================================================================
 
-
+//function for the overall gameplay 
 const play = function () { 
 
-    
     //click handler for any box
     $('.box').on('click', function() {
 
@@ -108,6 +108,7 @@ const play = function () {
             playerOne.push( playerIdPick ); 
             // console.log(`playerOne's array ${playerOne}`)
 
+            //call the botPlay function here everytime a player done its turn
             timeoutID = setTimeout( botPlay, 500 )  
             playerTurn = "Bot"
             $('#playerTurn').text(`It's Player Bot turn!`)
@@ -121,7 +122,7 @@ const play = function () {
                 playerOneWins ++
                 $('#pOneWinCount').text(`${playerOneWins}`)
                 $('#announcement').css('visibility', 'visible').text(`Player 1 wins!`)
-                $('#boardReset').css('visibility', 'visible')
+                boardButtonVisible
 
                 //condition for best of 3
                 if (playerOneWins === 3) {
@@ -133,7 +134,7 @@ const play = function () {
                 //if it draws, announcement of draw will appear
             } else if ( playerOne.length === 5 && gameWin(playerOne) !== true ) {
                 $('#announcement').css('visibility', 'visible').text(`It's a draw!`)
-                $('#boardReset').css('visibility', 'visible')
+                boardButtonVisible
             } 
         } 
 
@@ -147,6 +148,7 @@ play()
 
 //=======================================================================
 
+//function for executing bot play
 const botPlay = function () {
 
     if (playerTurn === "Bot") {
@@ -167,7 +169,6 @@ const botPlay = function () {
             boxId.splice([i], 1)
         }
     }
-    console.log(boxId)
     console.log(playerIdPick)
 
     $(`#${playerIdPick}`).css('background', playerBotColor)
@@ -183,7 +184,7 @@ const botPlay = function () {
         playerBotWins ++
         $('#pBotWinCount').text(`${playerBotWins}`)
         $('#announcement').css('visibility', 'visible').text(`Player Bot wins!`)
-        $('#boardReset').css('visibility', 'visible')
+        boardButtonVisible
 
         //condition for best of 3
         if (playerBotWins === 3) {
@@ -194,7 +195,7 @@ const botPlay = function () {
 
     } else if ( playerBot.length === 5 && gameWin(playerBot) !== true ) {
         $('#announcement').css('visibility', 'visible').text(`It's a draw!`)
-        $('#boardReset').css('visibility', 'visible')
+        boardButtonVisible
         
     }
 }
@@ -202,9 +203,9 @@ const botPlay = function () {
 
 //===================================================================
 
+//reset button to reset game board, internal js stuff ie arrays, reset clickability etc
 const resetBoard = function () {
 
-    //reset button to reset game board, internal js stuff ie arrays, reset clickability etc
     $('#boardReset').on('click', function() {
         $('.box').css( 'background', 'radial-gradient(#b6b3addd, #f1ebe4dd)' )
         $('.box').css('pointer-events', 'none')
