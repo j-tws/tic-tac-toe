@@ -7,7 +7,7 @@ body {
 }
 
 h1 {
-    font-size: 100px;
+    font-size: 80px;
     font-weight: 700;
     margin: 0;
 
@@ -88,11 +88,11 @@ a {
 /* background css are below */
 
 #background {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     /* border: 1px solid red; */
     z-index: -5;
     overflow: hidden;
@@ -100,7 +100,7 @@ a {
 
 #background div {
     position: absolute;
-    bottom: -180px;
+    bottom: -25%;
     background-color: rgba(184, 180, 173, 0.778);
     animation-name: floatup;
     animation-duration: 15s;
@@ -207,4 +207,122 @@ a {
     border-radius: 50%;
     animation-delay: 5s;
     animation-duration: 20s;
+}
+
+@media only screen and (max-width: 600px) {
+
+    h1 {
+        font-size: 40px;
+    }
+
+    header p {
+        margin-top: 40px;
+        font-size: 20px;
+    }
+
+    .circle {
+        width: 15px;
+        height: 15px;
+        background: radial-gradient(#b6b3addd, #f1ebe4dd);
+        border-radius: 50%;
+        border: 5px solid rgb(0, 0, 0)
+    }
+    
+    .two {
+        margin-left:20px;
+        background: radial-gradient(#454544dd, #5b5854dd);
+    }
+    
+    .three {
+        margin-left:40px;
+        background: radial-gradient(#454544dd, #5b5854dd);
+    }
+    
+    #twoPlayer {
+        border: 3px solid rgb(85, 85, 85);
+        background-color:rgba(240, 238, 228, 0.794);
+        display: inline-block;
+        padding: 45px;
+        margin: 30px auto;
+        border-radius: 40px;
+    }
+
+    img {
+        position: relative;
+        width: 80px;
+        /* border: 1px solid red; */
+        text-align: center;
+        padding: 40px 40px 0 40px
+    }
+    
+    #bot {
+        display: relative;
+        background-color:rgba(240, 238, 228, 0.794);
+        border: 3px solid rgb(85, 85, 85);
+        display: block;
+        text-align: center;
+        margin: 30px 120px;
+        border-radius: 40px;
+    }
+    
+    #bot p {
+        padding-bottom: 40px;
+    }
+
+    #bg1 {
+        left: 10px;
+        width: 50px;
+        height: 50px;
+        animation-delay: 4s;
+        animation-duration: 8s;
+    }
+
+    #bg2 {
+        left: 50px;
+        width: 40px;
+        height: 40px;
+        animation-delay: 2s;
+        animation-duration: 10s;
+    }
+
+    #bg3 {
+        left: 100px;
+        width: 120px;
+        height: 120px;
+        animation-delay: 6s;
+        animation-duration: 3s;
+    }
+
+    #bg4 {
+        left: 170px;
+        width: 90px;
+        height: 90px;
+        animation-delay: 2s;
+        animation-duration: 15s;
+    }
+
+    #bg5 {
+        left: 250px;
+        width: 30px;
+        height: 30px;
+        animation-delay: 9s;
+        animation-duration: 12s;
+    }
+
+    #bg6 {
+        left: 320px;
+        width: 150px;
+        height: 150px;
+        animation-delay: 10s;
+        animation-duration: 7s;
+    }
+
+    #bg7 {
+        left: 400px;
+        width: 90px;
+        height: 90px;
+        animation-delay: 3s;
+        animation-duration: 4s;
+    }
+        
 }
