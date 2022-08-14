@@ -23,8 +23,6 @@ The gameplay and mechanics of the simple bot mode is similar to the 2-player mod
 
 The objective to win the game is identical to the 2-player mode, where the player with best of 3 rounds win the whole game.
 
-***NOTE**: This game is **NOT** mobile / tablet compatible. The game is best optimized when played on normal desktop screen.*
-
 # **Project background**
 
 This is my very first project that I built after intensively learning front-end web fundamentals for two weeks. Language used in this project are HTML, CSS and Javascript. Additional JQuery library is being applied to this project as well.
